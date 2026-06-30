@@ -3,20 +3,21 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
   <title>John Eiron | Social Media Manager</title>
 
   <style>
     :root {
-      --bg: #080808;
-      --bg-soft: #111111;
-      --card: rgba(255, 255, 255, 0.06);
-      --card-border: rgba(255, 255, 255, 0.12);
-      --text: #f7f7f2;
-      --muted: #b7b7ad;
-      --accent: #d6b46a;
-      --accent-light: #f3d98b;
-      --white: #ffffff;
-      --shadow: 0 25px 80px rgba(0, 0, 0, 0.45);
+      --bg: #090909;
+      --bg2: #111111;
+      --card: rgba(255, 255, 255, 0.07);
+      --border: rgba(255, 255, 255, 0.14);
+      --text: #f8f4ec;
+      --muted: #b8b2a7;
+      --gold: #d7b46a;
+      --gold2: #f5dc93;
+      --dark-gold: #8d6a28;
+      --shadow: 0 30px 100px rgba(0, 0, 0, 0.45);
     }
 
     * {
@@ -27,10 +28,10 @@
     }
 
     body {
-      font-family: Inter, Arial, sans-serif;
+      font-family: Arial, Helvetica, sans-serif;
       background:
-        radial-gradient(circle at top left, rgba(214, 180, 106, 0.16), transparent 30%),
-        radial-gradient(circle at 90% 10%, rgba(255, 255, 255, 0.08), transparent 28%),
+        radial-gradient(circle at top left, rgba(215, 180, 106, 0.18), transparent 35%),
+        radial-gradient(circle at 90% 10%, rgba(245, 220, 147, 0.08), transparent 30%),
         var(--bg);
       color: var(--text);
       line-height: 1.6;
@@ -51,118 +52,104 @@
       position: sticky;
       top: 0;
       z-index: 999;
-      background: rgba(8, 8, 8, 0.75);
+      background: rgba(9, 9, 9, 0.82);
       backdrop-filter: blur(18px);
-      border-bottom: 1px solid var(--card-border);
+      border-bottom: 1px solid var(--border);
     }
 
     nav {
-      min-height: 74px;
+      min-height: 76px;
       display: flex;
       align-items: center;
       justify-content: space-between;
-      gap: 24px;
+      gap: 25px;
     }
 
     .logo {
-      font-size: 1.1rem;
-      font-weight: 800;
-      letter-spacing: 0.12em;
+      font-weight: 900;
+      letter-spacing: 0.15em;
       text-transform: uppercase;
+      font-size: 0.95rem;
     }
 
     .logo span {
-      color: var(--accent);
+      color: var(--gold2);
     }
 
     .nav-links {
       display: flex;
       align-items: center;
-      gap: 26px;
+      gap: 24px;
       color: var(--muted);
       font-size: 0.92rem;
     }
 
     .nav-links a:hover {
-      color: var(--accent-light);
+      color: var(--gold2);
     }
 
-    .nav-cta {
+    .nav-btn {
       padding: 10px 16px;
-      border: 1px solid var(--accent);
+      border: 1px solid var(--gold);
+      color: var(--gold2) !important;
       border-radius: 999px;
-      color: var(--accent-light) !important;
     }
 
     .hero {
-      min-height: calc(100vh - 74px);
-      display: grid;
-      place-items: center;
+      min-height: calc(100vh - 76px);
+      display: flex;
+      align-items: center;
       padding: 80px 0;
-      position: relative;
-    }
-
-    .hero::before {
-      content: "";
-      position: absolute;
-      width: 560px;
-      height: 560px;
-      right: -180px;
-      top: 90px;
-      background: linear-gradient(135deg, rgba(214, 180, 106, 0.24), rgba(255, 255, 255, 0.04));
-      border-radius: 50%;
-      filter: blur(4px);
-      z-index: -1;
     }
 
     .hero-grid {
       display: grid;
-      grid-template-columns: 1.1fr 0.9fr;
+      grid-template-columns: 1.05fr 0.95fr;
       align-items: center;
-      gap: 54px;
+      gap: 60px;
     }
 
-    .eyebrow {
+    .badge {
       display: inline-flex;
       align-items: center;
       gap: 10px;
-      padding: 9px 14px;
-      border: 1px solid var(--card-border);
-      background: rgba(255, 255, 255, 0.05);
+      padding: 9px 15px;
       border-radius: 999px;
-      color: var(--accent-light);
-      font-size: 0.88rem;
+      border: 1px solid var(--border);
+      background: rgba(255, 255, 255, 0.05);
+      color: var(--gold2);
+      font-size: 0.9rem;
       margin-bottom: 24px;
     }
 
-    .eyebrow::before {
+    .badge::before {
       content: "";
       width: 8px;
       height: 8px;
-      background: var(--accent);
       border-radius: 50%;
-      box-shadow: 0 0 22px var(--accent);
+      background: var(--gold);
+      box-shadow: 0 0 20px var(--gold);
     }
 
     h1 {
-      font-size: clamp(3rem, 8vw, 6.8rem);
+      font-size: clamp(3rem, 7vw, 6.5rem);
       line-height: 0.92;
       letter-spacing: -0.07em;
-      margin-bottom: 28px;
+      margin-bottom: 26px;
     }
 
     .gold {
-      color: var(--accent-light);
+      color: var(--gold2);
     }
 
-    .hero p {
+    .hero-text {
       color: var(--muted);
       max-width: 620px;
       font-size: 1.08rem;
-      margin-bottom: 32px;
+      margin-bottom: 34px;
     }
 
-    .hero-buttons {
+    .buttons {
       display: flex;
       flex-wrap: wrap;
       gap: 14px;
@@ -172,104 +159,98 @@
       display: inline-flex;
       align-items: center;
       justify-content: center;
-      gap: 8px;
-      min-height: 48px;
-      padding: 13px 20px;
+      padding: 14px 21px;
+      min-height: 50px;
       border-radius: 999px;
       font-weight: 800;
       transition: 0.25s ease;
     }
 
     .btn-primary {
-      background: var(--accent);
-      color: #12100a;
+      background: var(--gold);
+      color: #111;
     }
 
     .btn-primary:hover {
+      background: var(--gold2);
       transform: translateY(-3px);
-      background: var(--accent-light);
     }
 
     .btn-secondary {
-      border: 1px solid var(--card-border);
+      border: 1px solid var(--border);
+      background: rgba(255, 255, 255, 0.045);
       color: var(--text);
-      background: rgba(255, 255, 255, 0.04);
     }
 
     .btn-secondary:hover {
+      border-color: var(--gold);
+      color: var(--gold2);
       transform: translateY(-3px);
-      border-color: var(--accent);
-      color: var(--accent-light);
     }
 
-    .hero-card {
+    .profile-frame {
       position: relative;
-      padding: 28px;
-      border: 1px solid var(--card-border);
+      padding: 20px;
+      border-radius: 36px;
+      border: 1px solid rgba(215, 180, 106, 0.35);
       background:
-        linear-gradient(145deg, rgba(255, 255, 255, 0.1), rgba(255, 255, 255, 0.03));
-      border-radius: 32px;
+        linear-gradient(145deg, rgba(255,255,255,0.12), rgba(255,255,255,0.035));
       box-shadow: var(--shadow);
       overflow: hidden;
     }
 
-    .hero-card::before {
+    .profile-frame::before {
       content: "";
       position: absolute;
-      inset: 0;
-      background:
-        linear-gradient(120deg, transparent, rgba(214, 180, 106, 0.16), transparent);
-      transform: translateX(-100%);
-      animation: shine 5s infinite;
+      inset: -80px;
+      background: conic-gradient(from 180deg, transparent, rgba(245,220,147,0.35), transparent);
+      animation: rotateGlow 8s linear infinite;
+      z-index: -1;
     }
 
-    @keyframes shine {
-      0% { transform: translateX(-100%); }
-      45%, 100% { transform: translateX(100%); }
+    @keyframes rotateGlow {
+      to {
+        transform: rotate(360deg);
+      }
     }
 
-    .phone-preview {
-      min-height: 520px;
-      border-radius: 26px;
-      background:
-        linear-gradient(rgba(0,0,0,0.18), rgba(0,0,0,0.55)),
-        url("https://images.unsplash.com/photo-1611162618071-b39a2ec055fb?auto=format&fit=crop&w=900&q=80");
-      background-size: cover;
-      background-position: center;
-      padding: 24px;
-      display: flex;
-      flex-direction: column;
-      justify-content: flex-end;
-      position: relative;
+    .profile-card {
+      border-radius: 28px;
       overflow: hidden;
+      background: #111;
+      border: 1px solid var(--border);
     }
 
-    .floating-box {
-      background: rgba(8, 8, 8, 0.74);
-      backdrop-filter: blur(12px);
-      border: 1px solid var(--card-border);
-      border-radius: 22px;
-      padding: 18px;
+    .profile-card img {
+      width: 100%;
+      height: 560px;
+      object-fit: cover;
+      object-position: center top;
+      display: block;
     }
 
-    .floating-box h3 {
-      font-size: 1.4rem;
-      margin-bottom: 8px;
+    .profile-info {
+      padding: 22px;
+      background:
+        linear-gradient(180deg, rgba(9,9,9,0.75), rgba(9,9,9,0.98));
     }
 
-    .floating-box p {
-      font-size: 0.95rem;
+    .profile-info h3 {
+      font-size: 1.55rem;
+      margin-bottom: 4px;
+    }
+
+    .profile-info p {
       color: var(--muted);
-      margin: 0;
     }
 
     section {
-      padding: 96px 0;
+      padding: 95px 0;
     }
 
     .section-heading {
-      max-width: 760px;
-      margin-bottom: 44px;
+      max-width: 780px;
+      margin-bottom: 45px;
     }
 
     .section-heading.center {
@@ -277,9 +258,9 @@
       margin-inline: auto;
     }
 
-    .section-kicker {
-      color: var(--accent-light);
-      font-weight: 800;
+    .kicker {
+      color: var(--gold2);
+      font-weight: 900;
       text-transform: uppercase;
       letter-spacing: 0.16em;
       font-size: 0.78rem;
@@ -287,15 +268,16 @@
     }
 
     h2 {
-      font-size: clamp(2rem, 5vw, 4rem);
+      font-size: clamp(2.2rem, 5vw, 4.3rem);
       line-height: 1;
-      letter-spacing: -0.05em;
+      letter-spacing: -0.055em;
       margin-bottom: 18px;
     }
 
-    .section-heading p {
+    .section-heading p,
+    .about-text p {
       color: var(--muted);
-      font-size: 1.02rem;
+      font-size: 1rem;
     }
 
     .tools {
@@ -306,11 +288,10 @@
 
     .tool {
       padding: 22px;
-      border: 1px solid var(--card-border);
-      background: var(--card);
       border-radius: 22px;
+      border: 1px solid var(--border);
+      background: var(--card);
       text-align: center;
-      color: var(--text);
       font-weight: 800;
     }
 
@@ -320,36 +301,39 @@
       margin-bottom: 8px;
     }
 
-    .problems-grid,
-    .services-grid,
-    .work-grid {
+    .grid-3 {
       display: grid;
       grid-template-columns: repeat(3, 1fr);
       gap: 18px;
     }
 
+    .grid-2 {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 18px;
+    }
+
     .card {
-      padding: 26px;
-      background: var(--card);
-      border: 1px solid var(--card-border);
+      padding: 27px;
       border-radius: 26px;
+      border: 1px solid var(--border);
+      background: var(--card);
       transition: 0.25s ease;
-      position: relative;
       overflow: hidden;
     }
 
     .card:hover {
       transform: translateY(-6px);
-      border-color: rgba(214, 180, 106, 0.55);
-      background: rgba(255, 255, 255, 0.085);
+      border-color: rgba(215, 180, 106, 0.6);
+      background: rgba(255, 255, 255, 0.09);
     }
 
-    .card-number {
+    .number {
       width: 42px;
       height: 42px;
       border-radius: 14px;
-      background: rgba(214, 180, 106, 0.14);
-      color: var(--accent-light);
+      background: rgba(215, 180, 106, 0.16);
+      color: var(--gold2);
       display: grid;
       place-items: center;
       font-weight: 900;
@@ -357,17 +341,13 @@
     }
 
     .card h3 {
-      font-size: 1.25rem;
+      font-size: 1.3rem;
       margin-bottom: 12px;
     }
 
     .card p {
       color: var(--muted);
       font-size: 0.96rem;
-    }
-
-    .services-grid {
-      grid-template-columns: repeat(2, 1fr);
     }
 
     .service-card {
@@ -377,61 +357,33 @@
       align-items: start;
     }
 
-    .service-icon {
-      width: 52px;
-      height: 52px;
+    .icon {
+      width: 54px;
+      height: 54px;
       border-radius: 18px;
-      background: linear-gradient(135deg, rgba(214, 180, 106, 0.28), rgba(255, 255, 255, 0.06));
       display: grid;
       place-items: center;
       font-size: 1.5rem;
-    }
-
-    .process {
-      display: grid;
-      grid-template-columns: repeat(4, 1fr);
-      gap: 16px;
-    }
-
-    .process-step {
-      padding: 22px;
-      border: 1px solid var(--card-border);
-      background: rgba(255, 255, 255, 0.045);
-      border-radius: 24px;
-    }
-
-    .process-step strong {
-      color: var(--accent-light);
-      display: block;
-      margin-bottom: 10px;
-      font-size: 0.9rem;
-      letter-spacing: 0.08em;
-      text-transform: uppercase;
-    }
-
-    .process-step p {
-      color: var(--muted);
-      font-size: 0.94rem;
+      background: linear-gradient(135deg, rgba(215,180,106,0.28), rgba(255,255,255,0.06));
     }
 
     .work-card {
-      min-height: 280px;
-      display: flex;
-      flex-direction: column;
-      justify-content: flex-end;
-      background-size: cover;
-      background-position: center;
+      min-height: 300px;
       border-radius: 26px;
+      border: 1px solid var(--border);
       overflow: hidden;
       position: relative;
-      border: 1px solid var(--card-border);
+      display: flex;
+      align-items: flex-end;
+      background-size: cover;
+      background-position: center;
     }
 
     .work-card::before {
       content: "";
       position: absolute;
       inset: 0;
-      background: linear-gradient(transparent, rgba(0,0,0,0.88));
+      background: linear-gradient(transparent, rgba(0,0,0,0.9));
     }
 
     .work-content {
@@ -441,12 +393,12 @@
 
     .tag {
       display: inline-block;
-      padding: 6px 10px;
+      padding: 6px 11px;
       border-radius: 999px;
-      background: rgba(214, 180, 106, 0.18);
-      color: var(--accent-light);
-      font-size: 0.76rem;
-      font-weight: 800;
+      background: rgba(215, 180, 106, 0.17);
+      color: var(--gold2);
+      font-size: 0.75rem;
+      font-weight: 900;
       margin-bottom: 12px;
     }
 
@@ -456,112 +408,120 @@
       margin-top: 8px;
     }
 
-    .about {
+    .process {
       display: grid;
-      grid-template-columns: 0.9fr 1.1fr;
-      gap: 42px;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 16px;
+    }
+
+    .process-step {
+      padding: 23px;
+      border-radius: 24px;
+      border: 1px solid var(--border);
+      background: rgba(255,255,255,0.045);
+    }
+
+    .process-step strong {
+      display: block;
+      color: var(--gold2);
+      font-size: 0.85rem;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      margin-bottom: 11px;
+    }
+
+    .process-step p {
+      color: var(--muted);
+      font-size: 0.94rem;
+    }
+
+    .about-grid {
+      display: grid;
+      grid-template-columns: 0.85fr 1.15fr;
+      gap: 45px;
       align-items: center;
     }
 
     .about-photo {
       border-radius: 30px;
-      min-height: 460px;
-      background:
-        linear-gradient(rgba(0,0,0,0.12), rgba(0,0,0,0.55)),
-        url("https://images.unsplash.com/photo-1556157382-97eda2d62296?auto=format&fit=crop&w=900&q=80");
-      background-size: cover;
-      background-position: center;
-      border: 1px solid var(--card-border);
+      overflow: hidden;
+      border: 1px solid rgba(215, 180, 106, 0.35);
       box-shadow: var(--shadow);
-      display: flex;
-      align-items: end;
-      padding: 24px;
+      background: #111;
     }
 
-    .about-badge {
+    .about-photo img {
       width: 100%;
-      background: rgba(8, 8, 8, 0.72);
-      border: 1px solid var(--card-border);
-      backdrop-filter: blur(14px);
-      padding: 18px;
-      border-radius: 22px;
-    }
-
-    .about-badge p {
-      color: var(--muted);
-      margin-top: 4px;
-    }
-
-    .about-text p {
-      color: var(--muted);
-      margin-bottom: 16px;
+      height: 520px;
+      object-fit: cover;
+      object-position: center top;
+      display: block;
     }
 
     .stats {
       display: grid;
       grid-template-columns: repeat(3, 1fr);
       gap: 14px;
-      margin-top: 24px;
+      margin-top: 25px;
     }
 
     .stat {
       padding: 18px;
       border-radius: 20px;
-      border: 1px solid var(--card-border);
-      background: rgba(255, 255, 255, 0.045);
+      border: 1px solid var(--border);
+      background: rgba(255,255,255,0.045);
     }
 
     .stat h3 {
-      color: var(--accent-light);
-      font-size: 1.8rem;
+      color: var(--gold2);
+      font-size: 1.85rem;
       line-height: 1;
       margin-bottom: 8px;
     }
 
     .stat p {
-      font-size: 0.85rem;
       color: var(--muted);
-      margin: 0;
+      font-size: 0.85rem;
     }
 
-    .contact {
+    .contact-box {
       padding: 60px;
       border-radius: 34px;
-      border: 1px solid rgba(214, 180, 106, 0.28);
-      background:
-        radial-gradient(circle at top right, rgba(214, 180, 106, 0.24), transparent 38%),
-        linear-gradient(135deg, rgba(255, 255, 255, 0.085), rgba(255, 255, 255, 0.035));
-      box-shadow: var(--shadow);
       text-align: center;
+      border: 1px solid rgba(215, 180, 106, 0.35);
+      background:
+        radial-gradient(circle at top right, rgba(215, 180, 106, 0.25), transparent 40%),
+        linear-gradient(135deg, rgba(255,255,255,0.09), rgba(255,255,255,0.035));
+      box-shadow: var(--shadow);
     }
 
-    .contact p {
-      color: var(--muted);
+    .contact-box p {
       max-width: 680px;
       margin: 0 auto 28px;
+      color: var(--muted);
     }
 
     .contact-info {
+      margin-top: 25px;
       display: flex;
       justify-content: center;
       flex-wrap: wrap;
-      gap: 14px;
-      margin-top: 26px;
+      gap: 12px;
     }
 
-    .contact-pill {
+    .pill {
       padding: 12px 16px;
-      border: 1px solid var(--card-border);
       border-radius: 999px;
-      background: rgba(255, 255, 255, 0.045);
+      border: 1px solid var(--border);
       color: var(--muted);
+      background: rgba(255,255,255,0.045);
     }
 
     footer {
       padding: 28px 0;
       text-align: center;
       color: var(--muted);
-      border-top: 1px solid var(--card-border);
+      border-top: 1px solid var(--border);
       font-size: 0.9rem;
     }
 
@@ -578,33 +538,34 @@
       }
 
       .hero-grid,
-      .about {
-        grid-template-columns: 1fr;
-      }
-
-      .hero-card {
-        order: -1;
-      }
-
-      .phone-preview {
-        min-height: 420px;
-      }
-
+      .about-grid,
+      .grid-2,
+      .grid-3,
       .tools,
-      .problems-grid,
-      .services-grid,
-      .work-grid,
       .process,
       .stats {
         grid-template-columns: 1fr;
       }
 
-      .contact {
-        padding: 36px 22px;
+      .hero {
+        text-align: center;
+      }
+
+      .buttons {
+        justify-content: center;
+      }
+
+      .profile-card img,
+      .about-photo img {
+        height: 430px;
       }
 
       .service-card {
         grid-template-columns: 1fr;
+      }
+
+      .contact-box {
+        padding: 38px 22px;
       }
     }
   </style>
@@ -615,14 +576,14 @@
   <header>
     <div class="container">
       <nav>
-        <a href="#" class="logo">Eiron<span>Social</span></a>
+        <a href="#" class="logo">John <span>Eiron</span></a>
 
         <div class="nav-links">
           <a href="#services">Services</a>
-          <a href="#work">Work</a>
+          <a href="#work">Portfolio</a>
           <a href="#process">Process</a>
           <a href="#about">About</a>
-          <a href="#contact" class="nav-cta">Let’s Work</a>
+          <a href="#contact" class="nav-btn">Contact Me</a>
         </div>
       </nav>
     </div>
@@ -633,31 +594,32 @@
     <section class="hero">
       <div class="container hero-grid">
         <div>
-          <div class="eyebrow">Social Media Manager • Brand Authority • Engagement</div>
+          <div class="badge">Social Media Manager • Content Strategy • Brand Authority</div>
 
           <h1>
-            Strategic Social Media
-            <span class="gold">Meets Brand Authority.</span>
+            Transforming Social Media into
+            <span class="gold">Brand Authority.</span>
           </h1>
 
-          <p>
+          <p class="hero-text">
             I help business owners build a stronger digital presence through engaging reels,
-            promotional videos, eye-catching posters, consistent stories, funnels, and content calendars
-            designed to create meaningful engagement.
+            promotional videos, eye-catching posters, consistent stories, funnel creation,
+            and organized content calendars.
           </p>
 
-          <div class="hero-buttons">
-            <a href="#contact" class="btn btn-primary">Let’s Work Together</a>
+          <div class="buttons">
+            <a href="#contact" class="btn btn-primary">Work With Me</a>
             <a href="https://johneiron.my.canva.site/portfolio" target="_blank" class="btn btn-secondary">View Portfolio</a>
-            <a href="https://drive.google.com/file/d/1Dl7YVZ4iqJ0Kwr1Atyd6469r5oJxlphf/view?usp=share_link" target="_blank" class="btn btn-secondary">View Resume</a>
+            <a href="https://drive.google.com/file/d/1Dl7YVZ4iqJ0Kwr1Atyd6469r5oJxlphf/view" target="_blank" class="btn btn-secondary">View Resume</a>
           </div>
         </div>
 
-        <div class="hero-card">
-          <div class="phone-preview">
-            <div class="floating-box">
-              <h3>Transforming Social Media into Measurable Brand Authority</h3>
-              <p>Consistent content. Clear messaging. Stronger online presence.</p>
+        <div class="profile-frame">
+          <div class="profile-card">
+            <img src="profile.png" alt="John Eiron profile photo">
+            <div class="profile-info">
+              <h3>John Eiron</h3>
+              <p>Social Media Manager helping brands grow with consistent, strategic content.</p>
             </div>
           </div>
         </div>
@@ -667,10 +629,10 @@
     <section id="tools">
       <div class="container">
         <div class="section-heading center">
-          <div class="section-kicker">Tools I Use</div>
-          <h2>Built with the platforms brands already need.</h2>
+          <div class="kicker">Tools I Use</div>
+          <h2>Creative tools for organized content execution.</h2>
           <p>
-            From planning and editing to publishing and funnels, I use practical tools to keep your brand organized and consistent.
+            I use practical tools for content planning, editing, publishing, and funnel creation.
           </p>
         </div>
 
@@ -686,39 +648,37 @@
     <section>
       <div class="container">
         <div class="section-heading">
-          <div class="section-kicker">Brand Problems</div>
-          <h2>Caught in any of these situations?</h2>
+          <div class="kicker">Brand Problems</div>
+          <h2>Is your social media not giving results?</h2>
           <p>
-            Many businesses struggle online not because their brand is bad, but because their content lacks direction,
-            consistency, and a clear strategy.
+            Many brands struggle online because their content lacks consistency,
+            clear messaging, and a strong strategy.
           </p>
         </div>
 
-        <div class="problems-grid">
+        <div class="grid-3">
           <div class="card">
-            <div class="card-number">01</div>
+            <div class="number">01</div>
             <h3>No Engagement</h3>
             <p>
-              Low interaction can come from inconsistent posting, unclear messaging, weak hooks,
-              or content that does not connect with the right audience.
+              Your posts may look active, but without the right hooks and messaging,
+              your audience may not interact.
             </p>
           </div>
 
           <div class="card">
-            <div class="card-number">02</div>
-            <h3>Inconsistency</h3>
+            <div class="number">02</div>
+            <h3>Inconsistent Branding</h3>
             <p>
-              Irregular posting and mixed visuals make it harder for people to recognize,
-              remember, and trust your brand.
+              Random colors, designs, and posting schedules can make your business look less professional.
             </p>
           </div>
 
           <div class="card">
-            <div class="card-number">03</div>
-            <h3>No Results</h3>
+            <div class="number">03</div>
+            <h3>No Clear Direction</h3>
             <p>
-              Without a clear content system, brands can post often but still struggle with visibility,
-              conversions, and meaningful audience growth.
+              Without a content calendar and funnel strategy, it becomes harder to turn attention into action.
             </p>
           </div>
         </div>
@@ -728,72 +688,59 @@
     <section id="services">
       <div class="container">
         <div class="section-heading center">
-          <div class="section-kicker">My Services</div>
-          <h2>Content support for brands that want to look active and trustworthy.</h2>
+          <div class="kicker">Services</div>
+          <h2>What I can help you with.</h2>
           <p>
-            These services are designed to help your brand show up consistently, communicate clearly,
-            and build a stronger digital presence.
+            These services are made for brands that want to look active, professional, and trustworthy online.
           </p>
         </div>
 
-        <div class="services-grid">
+        <div class="grid-2">
           <div class="card service-card">
-            <div class="service-icon">🎞️</div>
+            <div class="icon">🎞️</div>
             <div>
               <h3>Engaging Reels</h3>
-              <p>
-                Reels that help strengthen brand identity, build trust, and create consistent audience engagement.
-              </p>
+              <p>Short-form content made to capture attention and increase brand visibility.</p>
             </div>
           </div>
 
           <div class="card service-card">
-            <div class="service-icon">📣</div>
+            <div class="icon">📣</div>
             <div>
-              <h3>Promotive Videos</h3>
-              <p>
-                Clear, compelling promotional videos that help communicate your offers and capture attention.
-              </p>
+              <h3>Promotional Videos</h3>
+              <p>Clear videos that present your offer and help people understand your brand faster.</p>
             </div>
           </div>
 
           <div class="card service-card">
-            <div class="service-icon">🖼️</div>
+            <div class="icon">🖼️</div>
             <div>
               <h3>Eye-Catching Posters</h3>
-              <p>
-                Scroll-stopping visuals that reinforce your identity and make your message easier to understand.
-              </p>
+              <p>Professional graphics for announcements, promos, branding, and content campaigns.</p>
             </div>
           </div>
 
           <div class="card service-card">
-            <div class="service-icon">📲</div>
+            <div class="icon">📲</div>
             <div>
               <h3>Consistent Stories</h3>
-              <p>
-                Story content that keeps your brand visible, active, and connected with your audience.
-              </p>
+              <p>Story content that keeps your brand visible and connected with your audience.</p>
             </div>
           </div>
 
           <div class="card service-card">
-            <div class="service-icon">🧭</div>
+            <div class="icon">🧭</div>
             <div>
               <h3>Funnel Creation</h3>
-              <p>
-                Simple funnel pages that guide interested audiences toward a clear next step.
-              </p>
+              <p>Simple funnel pages that guide visitors toward your offer, form, or next step.</p>
             </div>
           </div>
 
           <div class="card service-card">
-            <div class="service-icon">🗓️</div>
+            <div class="icon">🗓️</div>
             <div>
               <h3>Content Calendar</h3>
-              <p>
-                Organized content planning so your brand posts consistently with cohesive messaging.
-              </p>
+              <p>Organized monthly planning so your content stays consistent and strategic.</p>
             </div>
           </div>
         </div>
@@ -803,36 +750,39 @@
     <section id="work">
       <div class="container">
         <div class="section-heading">
-          <div class="section-kicker">Sample Work</div>
-          <h2>A clean portfolio section for your campaigns.</h2>
+          <div class="kicker">Portfolio</div>
+          <h2>View my creative work and resume.</h2>
           <p>
-            Replace these sample images later with your real Canva designs, reel thumbnails, client posters,
-            content calendars, or screenshots.
+            You can view my full portfolio and resume using the links below.
           </p>
         </div>
 
-        <div class="work-grid">
+        <div class="grid-3">
           <div class="work-card" style="background-image: url('https://images.unsplash.com/photo-1611162616305-c69b3fa7fbe0?auto=format&fit=crop&w=900&q=80');">
             <div class="work-content">
-              <span class="tag">Reels Strategy</span>
-              <h3>Short-Form Content Direction</h3>
-              <p>Hooks, posting ideas, captions, and creative direction for stronger attention.</p>
-            </div>
-          </div>
-
-          <div class="work-card" style="background-image: url('https://images.unsplash.com/photo-1611162618071-b39a2ec055fb?auto=format&fit=crop&w=900&q=80');">
-            <div class="work-content">
-              <span class="tag">Poster Design</span>
-              <h3>Branded Visual Content</h3>
-              <p>Posters and graphics designed to look clean, professional, and recognizable.</p>
+              <span class="tag">Portfolio</span>
+              <h3>Canva Portfolio</h3>
+              <p>See my designs, creative samples, and social media work.</p>
+              <br>
+              <a href="https://johneiron.my.canva.site/portfolio" target="_blank" class="btn btn-primary">Open Portfolio</a>
             </div>
           </div>
 
           <div class="work-card" style="background-image: url('https://images.unsplash.com/photo-1557804506-669a67965ba0?auto=format&fit=crop&w=900&q=80');">
             <div class="work-content">
-              <span class="tag">Content Calendar</span>
-              <h3>Organized Monthly Planning</h3>
-              <p>Content pillars, posting rhythm, and campaign ideas planned ahead of time.</p>
+              <span class="tag">Resume</span>
+              <h3>Professional Resume</h3>
+              <p>View my experience, background, and qualifications.</p>
+              <br>
+              <a href="https://drive.google.com/file/d/1Dl7YVZ4iqJ0Kwr1Atyd6469r5oJxlphf/view" target="_blank" class="btn btn-primary">Open Resume</a>
+            </div>
+          </div>
+
+          <div class="work-card" style="background-image: url('https://images.unsplash.com/photo-1611162618071-b39a2ec055fb?auto=format&fit=crop&w=900&q=80');">
+            <div class="work-content">
+              <span class="tag">Social Media</span>
+              <h3>Content Strategy</h3>
+              <p>Reels, captions, posters, stories, funnels, and calendars for brand growth.</p>
             </div>
           </div>
         </div>
@@ -842,10 +792,10 @@
     <section id="process">
       <div class="container">
         <div class="section-heading center">
-          <div class="section-kicker">How It Works</div>
-          <h2>A simple process from strategy to posting.</h2>
+          <div class="kicker">Process</div>
+          <h2>A simple workflow for better content.</h2>
           <p>
-            The goal is to make your social media easier to manage while keeping your brand consistent and professional.
+            My process helps your brand stay organized from planning to posting.
           </p>
         </div>
 
@@ -853,52 +803,48 @@
           <div class="process-step">
             <strong>Step 01</strong>
             <h3>Brand Review</h3>
-            <p>I review your current page, visuals, audience, and messaging.</p>
+            <p>I review your current social media, branding, audience, and content style.</p>
           </div>
 
           <div class="process-step">
             <strong>Step 02</strong>
-            <h3>Content Plan</h3>
-            <p>I create a clear content direction based on your goals and brand identity.</p>
+            <h3>Strategy</h3>
+            <p>I create a content direction that matches your goals and brand identity.</p>
           </div>
 
           <div class="process-step">
             <strong>Step 03</strong>
-            <h3>Create Content</h3>
-            <p>I help prepare reels, posters, stories, captions, and funnel content.</p>
+            <h3>Creation</h3>
+            <p>I help create reels, posters, stories, captions, and funnel content.</p>
           </div>
 
           <div class="process-step">
             <strong>Step 04</strong>
             <h3>Improve</h3>
-            <p>We review what works and adjust the next content plan for better results.</p>
+            <p>We review what works and improve future content based on performance.</p>
           </div>
         </div>
       </div>
     </section>
 
     <section id="about">
-      <div class="container about">
+      <div class="container about-grid">
         <div class="about-photo">
-          <div class="about-badge">
-            <h3>John Eiron</h3>
-            <p>Social Media Manager</p>
-          </div>
+          <img src="profile.png" alt="John Eiron profile photo">
         </div>
 
         <div class="about-text">
-          <div class="section-kicker">About Me</div>
-          <h2>I help brands show up better online.</h2>
+          <div class="kicker">About Me</div>
+          <h2>I help brands show up with confidence online.</h2>
 
           <p>
-            I work with business owners who want their social media to look more active, organized,
-            and professional. My focus is on content that builds brand authority, creates meaningful engagement,
-            and makes the page feel trustworthy.
+            I am John Eiron, a Social Media Manager focused on helping businesses build a stronger
+            online presence through consistent, strategic, and visually professional content.
           </p>
 
           <p>
-            Whether your brand needs reels, posters, stories, a content calendar, or a funnel page,
-            I can help create a cleaner system for your digital presence.
+            My goal is to help brands look more credible, create meaningful engagement,
+            and guide audiences toward action through content and funnel strategy.
           </p>
 
           <div class="stats">
@@ -906,14 +852,23 @@
               <h3>6</h3>
               <p>Main service areas</p>
             </div>
+
             <div class="stat">
               <h3>4</h3>
               <p>Creative tools used</p>
             </div>
+
             <div class="stat">
               <h3>1</h3>
-              <p>Goal: stronger brand presence</p>
+              <p>Goal: stronger brand authority</p>
             </div>
+          </div>
+
+          <br>
+
+          <div class="buttons">
+            <a href="https://johneiron.my.canva.site/portfolio" target="_blank" class="btn btn-primary">View Portfolio</a>
+            <a href="https://drive.google.com/file/d/1Dl7YVZ4iqJ0Kwr1Atyd6469r5oJxlphf/view" target="_blank" class="btn btn-secondary">View Resume</a>
           </div>
         </div>
       </div>
@@ -921,22 +876,23 @@
 
     <section id="contact">
       <div class="container">
-        <div class="contact">
-          <div class="section-kicker">Contact</div>
+        <div class="contact-box">
+          <div class="kicker">Contact</div>
           <h2>Ready to build a stronger social media presence?</h2>
           <p>
-            Let’s create content that makes your brand look consistent, credible, and ready for meaningful engagement.
+            Let’s create consistent content that makes your brand look professional,
+            trustworthy, and ready for meaningful engagement.
           </p>
 
-          <div class="hero-buttons" style="justify-content: center;">
+          <div class="buttons" style="justify-content: center;">
             <a href="mailto:eirongalsim30@gmail.com" class="btn btn-primary">Email Me</a>
             <a href="tel:+639152897463" class="btn btn-secondary">Call / Message</a>
-            <a href="https://eirongalsim.systeme.io/va" target="_blank" class="btn btn-secondary">Original Page</a>
+            <a href="https://johneiron.my.canva.site/portfolio" target="_blank" class="btn btn-secondary">Portfolio</a>
           </div>
 
           <div class="contact-info">
-            <div class="contact-pill">📧 eirongalsim30@gmail.com</div>
-            <div class="contact-pill">📱 +63 915 289 7463</div>
+            <div class="pill">📧 eirongalsim30@gmail.com</div>
+            <div class="pill">📱 +63 915 289 7463</div>
           </div>
         </div>
       </div>
