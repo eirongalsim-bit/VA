@@ -1,0 +1,672 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Neil Tristan Mendez | Social Media Manager</title>
+
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      scroll-behavior: smooth;
+    }
+
+    body {
+      font-family: Arial, sans-serif;
+      background: #0f172a;
+      color: #f8fafc;
+      line-height: 1.6;
+    }
+
+    a {
+      color: inherit;
+      text-decoration: none;
+    }
+
+    .container {
+      width: 90%;
+      max-width: 1100px;
+      margin: auto;
+    }
+
+    header {
+      position: sticky;
+      top: 0;
+      z-index: 1000;
+      background: rgba(15, 23, 42, 0.95);
+      backdrop-filter: blur(10px);
+      border-bottom: 1px solid rgba(255,255,255,0.08);
+    }
+
+    nav {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 18px 0;
+    }
+
+    .logo {
+      font-size: 22px;
+      font-weight: bold;
+      color: #38bdf8;
+    }
+
+    .nav-links {
+      display: flex;
+      gap: 22px;
+      font-size: 15px;
+    }
+
+    .nav-links a:hover {
+      color: #38bdf8;
+    }
+
+    .hero {
+      min-height: 90vh;
+      display: flex;
+      align-items: center;
+      background:
+        linear-gradient(rgba(15,23,42,0.75), rgba(15,23,42,0.95)),
+        url("https://images.unsplash.com/photo-1611162617474-5b21e879e113?auto=format&fit=crop&w=1600&q=80");
+      background-size: cover;
+      background-position: center;
+    }
+
+    .hero-content {
+      max-width: 700px;
+    }
+
+    .badge {
+      display: inline-block;
+      background: rgba(56, 189, 248, 0.15);
+      color: #38bdf8;
+      padding: 8px 14px;
+      border-radius: 999px;
+      font-size: 14px;
+      margin-bottom: 18px;
+      border: 1px solid rgba(56,189,248,0.35);
+    }
+
+    .hero h1 {
+      font-size: clamp(40px, 7vw, 72px);
+      line-height: 1.05;
+      margin-bottom: 20px;
+    }
+
+    .hero h1 span {
+      color: #38bdf8;
+    }
+
+    .hero p {
+      font-size: 18px;
+      color: #cbd5e1;
+      margin-bottom: 30px;
+    }
+
+    .buttons {
+      display: flex;
+      gap: 15px;
+      flex-wrap: wrap;
+    }
+
+    .btn {
+      display: inline-block;
+      padding: 14px 22px;
+      border-radius: 10px;
+      font-weight: bold;
+      transition: 0.3s;
+    }
+
+    .btn-primary {
+      background: #38bdf8;
+      color: #020617;
+    }
+
+    .btn-primary:hover {
+      background: #0ea5e9;
+      transform: translateY(-3px);
+    }
+
+    .btn-secondary {
+      border: 1px solid #38bdf8;
+      color: #38bdf8;
+    }
+
+    .btn-secondary:hover {
+      background: rgba(56,189,248,0.12);
+      transform: translateY(-3px);
+    }
+
+    section {
+      padding: 85px 0;
+    }
+
+    .section-title {
+      text-align: center;
+      margin-bottom: 45px;
+    }
+
+    .section-title h2 {
+      font-size: 36px;
+      margin-bottom: 10px;
+    }
+
+    .section-title p {
+      color: #94a3b8;
+    }
+
+    .about-grid {
+      display: grid;
+      grid-template-columns: 1fr 1.2fr;
+      gap: 35px;
+      align-items: center;
+    }
+
+    .profile-card {
+      background: #111827;
+      border: 1px solid rgba(255,255,255,0.08);
+      padding: 25px;
+      border-radius: 18px;
+      text-align: center;
+    }
+
+    .profile-card img {
+      width: 170px;
+      height: 170px;
+      border-radius: 50%;
+      object-fit: cover;
+      border: 4px solid #38bdf8;
+      margin-bottom: 18px;
+    }
+
+    .profile-card h3 {
+      font-size: 24px;
+      margin-bottom: 8px;
+    }
+
+    .profile-card p {
+      color: #94a3b8;
+    }
+
+    .about-text p {
+      color: #cbd5e1;
+      margin-bottom: 16px;
+    }
+
+    .stats {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 15px;
+      margin-top: 25px;
+    }
+
+    .stat {
+      background: #111827;
+      border: 1px solid rgba(255,255,255,0.08);
+      padding: 20px;
+      border-radius: 14px;
+      text-align: center;
+    }
+
+    .stat h3 {
+      color: #38bdf8;
+      font-size: 28px;
+    }
+
+    .stat p {
+      font-size: 14px;
+      color: #94a3b8;
+    }
+
+    .services-grid,
+    .portfolio-grid,
+    .pricing-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 22px;
+    }
+
+    .card {
+      background: #111827;
+      border: 1px solid rgba(255,255,255,0.08);
+      padding: 25px;
+      border-radius: 18px;
+      transition: 0.3s;
+    }
+
+    .card:hover {
+      transform: translateY(-8px);
+      border-color: rgba(56,189,248,0.5);
+    }
+
+    .card h3 {
+      margin-bottom: 12px;
+      color: #f8fafc;
+    }
+
+    .card p,
+    .card li {
+      color: #cbd5e1;
+      font-size: 15px;
+    }
+
+    .card-icon {
+      font-size: 34px;
+      margin-bottom: 14px;
+    }
+
+    .portfolio-card {
+      overflow: hidden;
+      padding: 0;
+    }
+
+    .portfolio-card img {
+      width: 100%;
+      height: 210px;
+      object-fit: cover;
+      display: block;
+    }
+
+    .portfolio-content {
+      padding: 22px;
+    }
+
+    .tag {
+      display: inline-block;
+      background: rgba(56,189,248,0.12);
+      color: #38bdf8;
+      padding: 5px 10px;
+      border-radius: 999px;
+      font-size: 12px;
+      margin-bottom: 12px;
+    }
+
+    .pricing-card {
+      position: relative;
+    }
+
+    .popular {
+      border-color: #38bdf8;
+      box-shadow: 0 0 30px rgba(56,189,248,0.12);
+    }
+
+    .price {
+      font-size: 36px;
+      color: #38bdf8;
+      margin: 15px 0;
+      font-weight: bold;
+    }
+
+    .pricing-card ul {
+      list-style: none;
+      margin: 20px 0;
+    }
+
+    .pricing-card li {
+      margin-bottom: 10px;
+    }
+
+    .testimonial {
+      background: #111827;
+      border: 1px solid rgba(255,255,255,0.08);
+      padding: 30px;
+      border-radius: 18px;
+      max-width: 800px;
+      margin: auto;
+      text-align: center;
+    }
+
+    .testimonial p {
+      color: #cbd5e1;
+      font-size: 18px;
+      margin-bottom: 20px;
+    }
+
+    .contact-box {
+      background: linear-gradient(135deg, #111827, #0f172a);
+      border: 1px solid rgba(56,189,248,0.3);
+      padding: 40px;
+      border-radius: 22px;
+      text-align: center;
+      max-width: 750px;
+      margin: auto;
+    }
+
+    .contact-box p {
+      color: #cbd5e1;
+      margin-bottom: 25px;
+    }
+
+    .social-links {
+      display: flex;
+      justify-content: center;
+      gap: 15px;
+      flex-wrap: wrap;
+      margin-top: 25px;
+    }
+
+    .social-links a {
+      padding: 10px 15px;
+      background: #111827;
+      border: 1px solid rgba(255,255,255,0.08);
+      border-radius: 10px;
+      color: #38bdf8;
+    }
+
+    footer {
+      text-align: center;
+      padding: 25px;
+      color: #94a3b8;
+      border-top: 1px solid rgba(255,255,255,0.08);
+      font-size: 14px;
+    }
+
+    @media (max-width: 900px) {
+      .about-grid,
+      .services-grid,
+      .portfolio-grid,
+      .pricing-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .stats {
+        grid-template-columns: 1fr;
+      }
+
+      nav {
+        flex-direction: column;
+        gap: 12px;
+      }
+
+      .nav-links {
+        flex-wrap: wrap;
+        justify-content: center;
+      }
+
+      .hero {
+        text-align: center;
+      }
+
+      .buttons {
+        justify-content: center;
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+  <header>
+    <div class="container">
+      <nav>
+        <div class="logo">Neil Social Studio</div>
+        <div class="nav-links">
+          <a href="#about">About</a>
+          <a href="#services">Services</a>
+          <a href="#work">Work</a>
+          <a href="#pricing">Pricing</a>
+          <a href="#contact">Contact</a>
+        </div>
+      </nav>
+    </div>
+  </header>
+
+  <section class="hero">
+    <div class="container">
+      <div class="hero-content">
+        <div class="badge">Social Media Manager & Content Strategist</div>
+        <h1>I help brands grow through <span>content that sells.</span></h1>
+        <p>
+          I create short-form content, manage social media pages, plan content calendars,
+          and help businesses build a strong online presence on TikTok, Instagram, Facebook,
+          and more.
+        </p>
+
+        <div class="buttons">
+          <a href="#contact" class="btn btn-primary">Work With Me</a>
+          <a href="#work" class="btn btn-secondary">View My Work</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="about">
+    <div class="container">
+      <div class="section-title">
+        <h2>About Me</h2>
+        <p>Creative strategy, consistent branding, and content built for attention.</p>
+      </div>
+
+      <div class="about-grid">
+        <div class="profile-card">
+          <img src="https://images.unsplash.com/photo-1535713875002-d1d0cf377fde?auto=format&fit=crop&w=600&q=80" alt="Profile photo">
+          <h3>Neil Tristan Mendez</h3>
+          <p>Social Media Manager</p>
+        </div>
+
+        <div class="about-text">
+          <p>
+            Hi, I’m Neil. I help businesses create content that looks professional,
+            feels authentic, and connects with the right audience.
+          </p>
+
+          <p>
+            My focus is on short-form videos, social media strategy, content planning,
+            brand consistency, and growth-focused posting. Whether you need daily content,
+            better captions, stronger visuals, or a full content system, I can help.
+          </p>
+
+          <div class="stats">
+            <div class="stat">
+              <h3>30+</h3>
+              <p>Content Ideas Monthly</p>
+            </div>
+            <div class="stat">
+              <h3>4+</h3>
+              <p>Platforms Managed</p>
+            </div>
+            <div class="stat">
+              <h3>100%</h3>
+              <p>Brand-Focused Strategy</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="services">
+    <div class="container">
+      <div class="section-title">
+        <h2>Services</h2>
+        <p>Everything your brand needs to look active, trustworthy, and professional online.</p>
+      </div>
+
+      <div class="services-grid">
+        <div class="card">
+          <div class="card-icon">📱</div>
+          <h3>Social Media Management</h3>
+          <p>
+            I manage your pages, plan posts, schedule content, and keep your brand active
+            across platforms.
+          </p>
+        </div>
+
+        <div class="card">
+          <div class="card-icon">🎬</div>
+          <h3>Short-Form Content</h3>
+          <p>
+            TikTok, Reels, and Shorts content ideas, editing direction, captions,
+            hooks, and posting strategy.
+          </p>
+        </div>
+
+        <div class="card">
+          <div class="card-icon">🧠</div>
+          <h3>Content Strategy</h3>
+          <p>
+            Monthly content calendars, brand messaging, audience targeting,
+            and growth-focused content planning.
+          </p>
+        </div>
+
+        <div class="card">
+          <div class="card-icon">✍️</div>
+          <h3>Caption Writing</h3>
+          <p>
+            Scroll-stopping captions, calls-to-action, hashtags, and post copy
+            designed to increase engagement.
+          </p>
+        </div>
+
+        <div class="card">
+          <div class="card-icon">🎨</div>
+          <h3>Brand Visuals</h3>
+          <p>
+            Simple branded graphics, post templates, story designs, and profile optimization.
+          </p>
+        </div>
+
+        <div class="card">
+          <div class="card-icon">📊</div>
+          <h3>Analytics Reports</h3>
+          <p>
+            Monthly performance reports showing what worked, what improved,
+            and what to post next.
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="work">
+    <div class="container">
+      <div class="section-title">
+        <h2>Sample Work</h2>
+        <p>Replace these with your real posts, designs, videos, or screenshots.</p>
+      </div>
+
+      <div class="portfolio-grid">
+        <div class="card portfolio-card">
+          <img src="https://images.unsplash.com/photo-1611162616305-c69b3fa7fbe0?auto=format&fit=crop&w=900&q=80" alt="Instagram content sample">
+          <div class="portfolio-content">
+            <span class="tag">Instagram</span>
+            <h3>Brand Awareness Campaign</h3>
+            <p>Created a clean content style to make the brand look more premium and consistent.</p>
+          </div>
+        </div>
+
+        <div class="card portfolio-card">
+          <img src="https://images.unsplash.com/photo-1611605698335-8b1569810432?auto=format&fit=crop&w=900&q=80" alt="TikTok content sample">
+          <div class="portfolio-content">
+            <span class="tag">TikTok</span>
+            <h3>Short-Form Video Strategy</h3>
+            <p>Planned hooks, video ideas, captions, and posting schedule for short-form growth.</p>
+          </div>
+        </div>
+
+        <div class="card portfolio-card">
+          <img src="https://images.unsplash.com/photo-1557804506-669a67965ba0?auto=format&fit=crop&w=900&q=80" alt="Content calendar sample">
+          <div class="portfolio-content">
+            <span class="tag">Strategy</span>
+            <h3>Monthly Content Calendar</h3>
+            <p>Organized content pillars, posting topics, and weekly campaign ideas.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="pricing">
+    <div class="container">
+      <div class="section-title">
+        <h2>Packages</h2>
+        <p>Simple packages for small businesses, creators, and growing brands.</p>
+      </div>
+
+      <div class="pricing-grid">
+        <div class="card pricing-card">
+          <h3>Starter</h3>
+          <div class="price">$199/mo</div>
+          <p>Best for businesses that need basic consistency.</p>
+          <ul>
+            <li>✔ 8 posts per month</li>
+            <li>✔ Caption writing</li>
+            <li>✔ Hashtag research</li>
+            <li>✔ Basic content calendar</li>
+          </ul>
+          <a href="#contact" class="btn btn-secondary">Choose Starter</a>
+        </div>
+
+        <div class="card pricing-card popular">
+          <h3>Growth</h3>
+          <div class="price">$399/mo</div>
+          <p>Best for brands that want stronger content and growth.</p>
+          <ul>
+            <li>✔ 16 posts per month</li>
+            <li>✔ Short-form content ideas</li>
+            <li>✔ Captions + hashtags</li>
+            <li>✔ Monthly analytics report</li>
+            <li>✔ Profile optimization</li>
+          </ul>
+          <a href="#contact" class="btn btn-primary">Choose Growth</a>
+        </div>
+
+        <div class="card pricing-card">
+          <h3>Premium</h3>
+          <div class="price">$699/mo</div>
+          <p>Best for businesses that want full social media support.</p>
+          <ul>
+            <li>✔ 30 posts per month</li>
+            <li>✔ Full content calendar</li>
+            <li>✔ Reels/TikTok strategy</li>
+            <li>✔ Engagement support</li>
+            <li>✔ Monthly strategy call</li>
+          </ul>
+          <a href="#contact" class="btn btn-secondary">Choose Premium</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section>
+    <div class="container">
+      <div class="testimonial">
+        <p>
+          “Neil helped make our social media look more professional and gave us a clear
+          direction for what to post. The content finally feels organized and on-brand.”
+        </p>
+        <h3>— Sample Client Name</h3>
+      </div>
+    </div>
+  </section>
+
+  <section id="contact">
+    <div class="container">
+      <div class="contact-box">
+        <h2>Ready to grow your social media?</h2>
+        <p>
+          Let’s build a content strategy that makes your brand look active,
+          trustworthy, and professional.
+        </p>
+
+        <a href="mailto:your@email.com" class="btn btn-primary">Email Me</a>
+
+        <div class="social-links">
+          <a href="https://instagram.com/yourusername" target="_blank">Instagram</a>
+          <a href="https://tiktok.com/@yourusername" target="_blank">TikTok</a>
+          <a href="https://facebook.com/yourusername" target="_blank">Facebook</a>
+          <a href="https://linkedin.com/in/yourusername" target="_blank">LinkedIn</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <footer>
+    <p>© 2026 Neil Tristan Mendez. All rights reserved.</p>
+  </footer>
+
+</body>
+</html>
