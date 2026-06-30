@@ -3,9 +3,22 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Neil Tristan Mendez | Social Media Manager</title>
+  <title>John Eiron | Social Media Manager</title>
 
   <style>
+    :root {
+      --bg: #080808;
+      --bg-soft: #111111;
+      --card: rgba(255, 255, 255, 0.06);
+      --card-border: rgba(255, 255, 255, 0.12);
+      --text: #f7f7f2;
+      --muted: #b7b7ad;
+      --accent: #d6b46a;
+      --accent-light: #f3d98b;
+      --white: #ffffff;
+      --shadow: 0 25px 80px rgba(0, 0, 0, 0.45);
+    }
+
     * {
       margin: 0;
       padding: 0;
@@ -14,10 +27,14 @@
     }
 
     body {
-      font-family: Arial, sans-serif;
-      background: #0f172a;
-      color: #f8fafc;
+      font-family: Inter, Arial, sans-serif;
+      background:
+        radial-gradient(circle at top left, rgba(214, 180, 106, 0.16), transparent 30%),
+        radial-gradient(circle at 90% 10%, rgba(255, 255, 255, 0.08), transparent 28%),
+        var(--bg);
+      color: var(--text);
       line-height: 1.6;
+      overflow-x: hidden;
     }
 
     a {
@@ -26,371 +43,568 @@
     }
 
     .container {
-      width: 90%;
-      max-width: 1100px;
+      width: min(1120px, 92%);
       margin: auto;
     }
 
     header {
       position: sticky;
       top: 0;
-      z-index: 1000;
-      background: rgba(15, 23, 42, 0.95);
-      backdrop-filter: blur(10px);
-      border-bottom: 1px solid rgba(255,255,255,0.08);
+      z-index: 999;
+      background: rgba(8, 8, 8, 0.75);
+      backdrop-filter: blur(18px);
+      border-bottom: 1px solid var(--card-border);
     }
 
     nav {
+      min-height: 74px;
       display: flex;
-      justify-content: space-between;
       align-items: center;
-      padding: 18px 0;
+      justify-content: space-between;
+      gap: 24px;
     }
 
     .logo {
-      font-size: 22px;
-      font-weight: bold;
-      color: #38bdf8;
+      font-size: 1.1rem;
+      font-weight: 800;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+    }
+
+    .logo span {
+      color: var(--accent);
     }
 
     .nav-links {
       display: flex;
-      gap: 22px;
-      font-size: 15px;
+      align-items: center;
+      gap: 26px;
+      color: var(--muted);
+      font-size: 0.92rem;
     }
 
     .nav-links a:hover {
-      color: #38bdf8;
+      color: var(--accent-light);
+    }
+
+    .nav-cta {
+      padding: 10px 16px;
+      border: 1px solid var(--accent);
+      border-radius: 999px;
+      color: var(--accent-light) !important;
     }
 
     .hero {
-      min-height: 90vh;
-      display: flex;
+      min-height: calc(100vh - 74px);
+      display: grid;
+      place-items: center;
+      padding: 80px 0;
+      position: relative;
+    }
+
+    .hero::before {
+      content: "";
+      position: absolute;
+      width: 560px;
+      height: 560px;
+      right: -180px;
+      top: 90px;
+      background: linear-gradient(135deg, rgba(214, 180, 106, 0.24), rgba(255, 255, 255, 0.04));
+      border-radius: 50%;
+      filter: blur(4px);
+      z-index: -1;
+    }
+
+    .hero-grid {
+      display: grid;
+      grid-template-columns: 1.1fr 0.9fr;
       align-items: center;
-      background:
-        linear-gradient(rgba(15,23,42,0.75), rgba(15,23,42,0.95)),
-        url("https://images.unsplash.com/photo-1611162617474-5b21e879e113?auto=format&fit=crop&w=1600&q=80");
-      background-size: cover;
-      background-position: center;
+      gap: 54px;
     }
 
-    .hero-content {
-      max-width: 700px;
-    }
-
-    .badge {
-      display: inline-block;
-      background: rgba(56, 189, 248, 0.15);
-      color: #38bdf8;
-      padding: 8px 14px;
+    .eyebrow {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      padding: 9px 14px;
+      border: 1px solid var(--card-border);
+      background: rgba(255, 255, 255, 0.05);
       border-radius: 999px;
-      font-size: 14px;
-      margin-bottom: 18px;
-      border: 1px solid rgba(56,189,248,0.35);
+      color: var(--accent-light);
+      font-size: 0.88rem;
+      margin-bottom: 24px;
     }
 
-    .hero h1 {
-      font-size: clamp(40px, 7vw, 72px);
-      line-height: 1.05;
-      margin-bottom: 20px;
+    .eyebrow::before {
+      content: "";
+      width: 8px;
+      height: 8px;
+      background: var(--accent);
+      border-radius: 50%;
+      box-shadow: 0 0 22px var(--accent);
     }
 
-    .hero h1 span {
-      color: #38bdf8;
+    h1 {
+      font-size: clamp(3rem, 8vw, 6.8rem);
+      line-height: 0.92;
+      letter-spacing: -0.07em;
+      margin-bottom: 28px;
+    }
+
+    .gold {
+      color: var(--accent-light);
     }
 
     .hero p {
-      font-size: 18px;
-      color: #cbd5e1;
-      margin-bottom: 30px;
+      color: var(--muted);
+      max-width: 620px;
+      font-size: 1.08rem;
+      margin-bottom: 32px;
     }
 
-    .buttons {
+    .hero-buttons {
       display: flex;
-      gap: 15px;
       flex-wrap: wrap;
+      gap: 14px;
     }
 
     .btn {
-      display: inline-block;
-      padding: 14px 22px;
-      border-radius: 10px;
-      font-weight: bold;
-      transition: 0.3s;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 8px;
+      min-height: 48px;
+      padding: 13px 20px;
+      border-radius: 999px;
+      font-weight: 800;
+      transition: 0.25s ease;
     }
 
     .btn-primary {
-      background: #38bdf8;
-      color: #020617;
+      background: var(--accent);
+      color: #12100a;
     }
 
     .btn-primary:hover {
-      background: #0ea5e9;
       transform: translateY(-3px);
+      background: var(--accent-light);
     }
 
     .btn-secondary {
-      border: 1px solid #38bdf8;
-      color: #38bdf8;
+      border: 1px solid var(--card-border);
+      color: var(--text);
+      background: rgba(255, 255, 255, 0.04);
     }
 
     .btn-secondary:hover {
-      background: rgba(56,189,248,0.12);
       transform: translateY(-3px);
+      border-color: var(--accent);
+      color: var(--accent-light);
     }
 
-    section {
-      padding: 85px 0;
+    .hero-card {
+      position: relative;
+      padding: 28px;
+      border: 1px solid var(--card-border);
+      background:
+        linear-gradient(145deg, rgba(255, 255, 255, 0.1), rgba(255, 255, 255, 0.03));
+      border-radius: 32px;
+      box-shadow: var(--shadow);
+      overflow: hidden;
     }
 
-    .section-title {
-      text-align: center;
-      margin-bottom: 45px;
+    .hero-card::before {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background:
+        linear-gradient(120deg, transparent, rgba(214, 180, 106, 0.16), transparent);
+      transform: translateX(-100%);
+      animation: shine 5s infinite;
     }
 
-    .section-title h2 {
-      font-size: 36px;
-      margin-bottom: 10px;
+    @keyframes shine {
+      0% { transform: translateX(-100%); }
+      45%, 100% { transform: translateX(100%); }
     }
 
-    .section-title p {
-      color: #94a3b8;
+    .phone-preview {
+      min-height: 520px;
+      border-radius: 26px;
+      background:
+        linear-gradient(rgba(0,0,0,0.18), rgba(0,0,0,0.55)),
+        url("https://images.unsplash.com/photo-1611162618071-b39a2ec055fb?auto=format&fit=crop&w=900&q=80");
+      background-size: cover;
+      background-position: center;
+      padding: 24px;
+      display: flex;
+      flex-direction: column;
+      justify-content: flex-end;
+      position: relative;
+      overflow: hidden;
     }
 
-    .about-grid {
-      display: grid;
-      grid-template-columns: 1fr 1.2fr;
-      gap: 35px;
-      align-items: center;
+    .floating-box {
+      background: rgba(8, 8, 8, 0.74);
+      backdrop-filter: blur(12px);
+      border: 1px solid var(--card-border);
+      border-radius: 22px;
+      padding: 18px;
     }
 
-    .profile-card {
-      background: #111827;
-      border: 1px solid rgba(255,255,255,0.08);
-      padding: 25px;
-      border-radius: 18px;
-      text-align: center;
-    }
-
-    .profile-card img {
-      width: 170px;
-      height: 170px;
-      border-radius: 50%;
-      object-fit: cover;
-      border: 4px solid #38bdf8;
-      margin-bottom: 18px;
-    }
-
-    .profile-card h3 {
-      font-size: 24px;
+    .floating-box h3 {
+      font-size: 1.4rem;
       margin-bottom: 8px;
     }
 
-    .profile-card p {
-      color: #94a3b8;
+    .floating-box p {
+      font-size: 0.95rem;
+      color: var(--muted);
+      margin: 0;
+    }
+
+    section {
+      padding: 96px 0;
+    }
+
+    .section-heading {
+      max-width: 760px;
+      margin-bottom: 44px;
+    }
+
+    .section-heading.center {
+      text-align: center;
+      margin-inline: auto;
+    }
+
+    .section-kicker {
+      color: var(--accent-light);
+      font-weight: 800;
+      text-transform: uppercase;
+      letter-spacing: 0.16em;
+      font-size: 0.78rem;
+      margin-bottom: 12px;
+    }
+
+    h2 {
+      font-size: clamp(2rem, 5vw, 4rem);
+      line-height: 1;
+      letter-spacing: -0.05em;
+      margin-bottom: 18px;
+    }
+
+    .section-heading p {
+      color: var(--muted);
+      font-size: 1.02rem;
+    }
+
+    .tools {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 16px;
+    }
+
+    .tool {
+      padding: 22px;
+      border: 1px solid var(--card-border);
+      background: var(--card);
+      border-radius: 22px;
+      text-align: center;
+      color: var(--text);
+      font-weight: 800;
+    }
+
+    .tool span {
+      display: block;
+      font-size: 2rem;
+      margin-bottom: 8px;
+    }
+
+    .problems-grid,
+    .services-grid,
+    .work-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 18px;
+    }
+
+    .card {
+      padding: 26px;
+      background: var(--card);
+      border: 1px solid var(--card-border);
+      border-radius: 26px;
+      transition: 0.25s ease;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .card:hover {
+      transform: translateY(-6px);
+      border-color: rgba(214, 180, 106, 0.55);
+      background: rgba(255, 255, 255, 0.085);
+    }
+
+    .card-number {
+      width: 42px;
+      height: 42px;
+      border-radius: 14px;
+      background: rgba(214, 180, 106, 0.14);
+      color: var(--accent-light);
+      display: grid;
+      place-items: center;
+      font-weight: 900;
+      margin-bottom: 18px;
+    }
+
+    .card h3 {
+      font-size: 1.25rem;
+      margin-bottom: 12px;
+    }
+
+    .card p {
+      color: var(--muted);
+      font-size: 0.96rem;
+    }
+
+    .services-grid {
+      grid-template-columns: repeat(2, 1fr);
+    }
+
+    .service-card {
+      display: grid;
+      grid-template-columns: auto 1fr;
+      gap: 18px;
+      align-items: start;
+    }
+
+    .service-icon {
+      width: 52px;
+      height: 52px;
+      border-radius: 18px;
+      background: linear-gradient(135deg, rgba(214, 180, 106, 0.28), rgba(255, 255, 255, 0.06));
+      display: grid;
+      place-items: center;
+      font-size: 1.5rem;
+    }
+
+    .process {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 16px;
+    }
+
+    .process-step {
+      padding: 22px;
+      border: 1px solid var(--card-border);
+      background: rgba(255, 255, 255, 0.045);
+      border-radius: 24px;
+    }
+
+    .process-step strong {
+      color: var(--accent-light);
+      display: block;
+      margin-bottom: 10px;
+      font-size: 0.9rem;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+    }
+
+    .process-step p {
+      color: var(--muted);
+      font-size: 0.94rem;
+    }
+
+    .work-card {
+      min-height: 280px;
+      display: flex;
+      flex-direction: column;
+      justify-content: flex-end;
+      background-size: cover;
+      background-position: center;
+      border-radius: 26px;
+      overflow: hidden;
+      position: relative;
+      border: 1px solid var(--card-border);
+    }
+
+    .work-card::before {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(transparent, rgba(0,0,0,0.88));
+    }
+
+    .work-content {
+      position: relative;
+      padding: 24px;
+    }
+
+    .tag {
+      display: inline-block;
+      padding: 6px 10px;
+      border-radius: 999px;
+      background: rgba(214, 180, 106, 0.18);
+      color: var(--accent-light);
+      font-size: 0.76rem;
+      font-weight: 800;
+      margin-bottom: 12px;
+    }
+
+    .work-content p {
+      color: var(--muted);
+      font-size: 0.94rem;
+      margin-top: 8px;
+    }
+
+    .about {
+      display: grid;
+      grid-template-columns: 0.9fr 1.1fr;
+      gap: 42px;
+      align-items: center;
+    }
+
+    .about-photo {
+      border-radius: 30px;
+      min-height: 460px;
+      background:
+        linear-gradient(rgba(0,0,0,0.12), rgba(0,0,0,0.55)),
+        url("https://images.unsplash.com/photo-1556157382-97eda2d62296?auto=format&fit=crop&w=900&q=80");
+      background-size: cover;
+      background-position: center;
+      border: 1px solid var(--card-border);
+      box-shadow: var(--shadow);
+      display: flex;
+      align-items: end;
+      padding: 24px;
+    }
+
+    .about-badge {
+      width: 100%;
+      background: rgba(8, 8, 8, 0.72);
+      border: 1px solid var(--card-border);
+      backdrop-filter: blur(14px);
+      padding: 18px;
+      border-radius: 22px;
+    }
+
+    .about-badge p {
+      color: var(--muted);
+      margin-top: 4px;
     }
 
     .about-text p {
-      color: #cbd5e1;
+      color: var(--muted);
       margin-bottom: 16px;
     }
 
     .stats {
       display: grid;
       grid-template-columns: repeat(3, 1fr);
-      gap: 15px;
-      margin-top: 25px;
+      gap: 14px;
+      margin-top: 24px;
     }
 
     .stat {
-      background: #111827;
-      border: 1px solid rgba(255,255,255,0.08);
-      padding: 20px;
-      border-radius: 14px;
-      text-align: center;
+      padding: 18px;
+      border-radius: 20px;
+      border: 1px solid var(--card-border);
+      background: rgba(255, 255, 255, 0.045);
     }
 
     .stat h3 {
-      color: #38bdf8;
-      font-size: 28px;
+      color: var(--accent-light);
+      font-size: 1.8rem;
+      line-height: 1;
+      margin-bottom: 8px;
     }
 
     .stat p {
-      font-size: 14px;
-      color: #94a3b8;
+      font-size: 0.85rem;
+      color: var(--muted);
+      margin: 0;
     }
 
-    .services-grid,
-    .portfolio-grid,
-    .pricing-grid {
-      display: grid;
-      grid-template-columns: repeat(3, 1fr);
-      gap: 22px;
-    }
-
-    .card {
-      background: #111827;
-      border: 1px solid rgba(255,255,255,0.08);
-      padding: 25px;
-      border-radius: 18px;
-      transition: 0.3s;
-    }
-
-    .card:hover {
-      transform: translateY(-8px);
-      border-color: rgba(56,189,248,0.5);
-    }
-
-    .card h3 {
-      margin-bottom: 12px;
-      color: #f8fafc;
-    }
-
-    .card p,
-    .card li {
-      color: #cbd5e1;
-      font-size: 15px;
-    }
-
-    .card-icon {
-      font-size: 34px;
-      margin-bottom: 14px;
-    }
-
-    .portfolio-card {
-      overflow: hidden;
-      padding: 0;
-    }
-
-    .portfolio-card img {
-      width: 100%;
-      height: 210px;
-      object-fit: cover;
-      display: block;
-    }
-
-    .portfolio-content {
-      padding: 22px;
-    }
-
-    .tag {
-      display: inline-block;
-      background: rgba(56,189,248,0.12);
-      color: #38bdf8;
-      padding: 5px 10px;
-      border-radius: 999px;
-      font-size: 12px;
-      margin-bottom: 12px;
-    }
-
-    .pricing-card {
-      position: relative;
-    }
-
-    .popular {
-      border-color: #38bdf8;
-      box-shadow: 0 0 30px rgba(56,189,248,0.12);
-    }
-
-    .price {
-      font-size: 36px;
-      color: #38bdf8;
-      margin: 15px 0;
-      font-weight: bold;
-    }
-
-    .pricing-card ul {
-      list-style: none;
-      margin: 20px 0;
-    }
-
-    .pricing-card li {
-      margin-bottom: 10px;
-    }
-
-    .testimonial {
-      background: #111827;
-      border: 1px solid rgba(255,255,255,0.08);
-      padding: 30px;
-      border-radius: 18px;
-      max-width: 800px;
-      margin: auto;
+    .contact {
+      padding: 60px;
+      border-radius: 34px;
+      border: 1px solid rgba(214, 180, 106, 0.28);
+      background:
+        radial-gradient(circle at top right, rgba(214, 180, 106, 0.24), transparent 38%),
+        linear-gradient(135deg, rgba(255, 255, 255, 0.085), rgba(255, 255, 255, 0.035));
+      box-shadow: var(--shadow);
       text-align: center;
     }
 
-    .testimonial p {
-      color: #cbd5e1;
-      font-size: 18px;
-      margin-bottom: 20px;
+    .contact p {
+      color: var(--muted);
+      max-width: 680px;
+      margin: 0 auto 28px;
     }
 
-    .contact-box {
-      background: linear-gradient(135deg, #111827, #0f172a);
-      border: 1px solid rgba(56,189,248,0.3);
-      padding: 40px;
-      border-radius: 22px;
-      text-align: center;
-      max-width: 750px;
-      margin: auto;
-    }
-
-    .contact-box p {
-      color: #cbd5e1;
-      margin-bottom: 25px;
-    }
-
-    .social-links {
+    .contact-info {
       display: flex;
       justify-content: center;
-      gap: 15px;
       flex-wrap: wrap;
-      margin-top: 25px;
+      gap: 14px;
+      margin-top: 26px;
     }
 
-    .social-links a {
-      padding: 10px 15px;
-      background: #111827;
-      border: 1px solid rgba(255,255,255,0.08);
-      border-radius: 10px;
-      color: #38bdf8;
+    .contact-pill {
+      padding: 12px 16px;
+      border: 1px solid var(--card-border);
+      border-radius: 999px;
+      background: rgba(255, 255, 255, 0.045);
+      color: var(--muted);
     }
 
     footer {
+      padding: 28px 0;
       text-align: center;
-      padding: 25px;
-      color: #94a3b8;
-      border-top: 1px solid rgba(255,255,255,0.08);
-      font-size: 14px;
+      color: var(--muted);
+      border-top: 1px solid var(--card-border);
+      font-size: 0.9rem;
     }
 
     @media (max-width: 900px) {
-      .about-grid,
-      .services-grid,
-      .portfolio-grid,
-      .pricing-grid {
-        grid-template-columns: 1fr;
-      }
-
-      .stats {
-        grid-template-columns: 1fr;
-      }
-
       nav {
         flex-direction: column;
-        gap: 12px;
+        padding: 16px 0;
       }
 
       .nav-links {
         flex-wrap: wrap;
         justify-content: center;
+        gap: 14px;
       }
 
-      .hero {
-        text-align: center;
+      .hero-grid,
+      .about {
+        grid-template-columns: 1fr;
       }
 
-      .buttons {
-        justify-content: center;
+      .hero-card {
+        order: -1;
+      }
+
+      .phone-preview {
+        min-height: 420px;
+      }
+
+      .tools,
+      .problems-grid,
+      .services-grid,
+      .work-grid,
+      .process,
+      .stats {
+        grid-template-columns: 1fr;
+      }
+
+      .contact {
+        padding: 36px 22px;
+      }
+
+      .service-card {
+        grid-template-columns: 1fr;
       }
     }
   </style>
@@ -401,271 +615,339 @@
   <header>
     <div class="container">
       <nav>
-        <div class="logo">Neil Social Studio</div>
+        <a href="#" class="logo">Eiron<span>Social</span></a>
+
         <div class="nav-links">
-          <a href="#about">About</a>
           <a href="#services">Services</a>
           <a href="#work">Work</a>
-          <a href="#pricing">Pricing</a>
-          <a href="#contact">Contact</a>
+          <a href="#process">Process</a>
+          <a href="#about">About</a>
+          <a href="#contact" class="nav-cta">Let’s Work</a>
         </div>
       </nav>
     </div>
   </header>
 
-  <section class="hero">
-    <div class="container">
-      <div class="hero-content">
-        <div class="badge">Social Media Manager & Content Strategist</div>
-        <h1>I help brands grow through <span>content that sells.</span></h1>
-        <p>
-          I create short-form content, manage social media pages, plan content calendars,
-          and help businesses build a strong online presence on TikTok, Instagram, Facebook,
-          and more.
-        </p>
+  <main>
 
-        <div class="buttons">
-          <a href="#contact" class="btn btn-primary">Work With Me</a>
-          <a href="#work" class="btn btn-secondary">View My Work</a>
+    <section class="hero">
+      <div class="container hero-grid">
+        <div>
+          <div class="eyebrow">Social Media Manager • Brand Authority • Engagement</div>
+
+          <h1>
+            Strategic Social Media
+            <span class="gold">Meets Brand Authority.</span>
+          </h1>
+
+          <p>
+            I help business owners build a stronger digital presence through engaging reels,
+            promotional videos, eye-catching posters, consistent stories, funnels, and content calendars
+            designed to create meaningful engagement.
+          </p>
+
+          <div class="hero-buttons">
+            <a href="#contact" class="btn btn-primary">Let’s Work Together</a>
+            <a href="https://johneiron.my.canva.site/portfolio" target="_blank" class="btn btn-secondary">View Portfolio</a>
+            <a href="https://drive.google.com/file/d/1Dl7YVZ4iqJ0Kwr1Atyd6469r5oJxlphf/view?usp=share_link" target="_blank" class="btn btn-secondary">View Resume</a>
+          </div>
+        </div>
+
+        <div class="hero-card">
+          <div class="phone-preview">
+            <div class="floating-box">
+              <h3>Transforming Social Media into Measurable Brand Authority</h3>
+              <p>Consistent content. Clear messaging. Stronger online presence.</p>
+            </div>
+          </div>
         </div>
       </div>
-    </div>
-  </section>
+    </section>
 
-  <section id="about">
-    <div class="container">
-      <div class="section-title">
-        <h2>About Me</h2>
-        <p>Creative strategy, consistent branding, and content built for attention.</p>
+    <section id="tools">
+      <div class="container">
+        <div class="section-heading center">
+          <div class="section-kicker">Tools I Use</div>
+          <h2>Built with the platforms brands already need.</h2>
+          <p>
+            From planning and editing to publishing and funnels, I use practical tools to keep your brand organized and consistent.
+          </p>
+        </div>
+
+        <div class="tools">
+          <div class="tool"><span>📊</span>Meta Business Suite</div>
+          <div class="tool"><span>🎨</span>Canva</div>
+          <div class="tool"><span>🎬</span>CapCut</div>
+          <div class="tool"><span>🧩</span>Systeme.io</div>
+        </div>
       </div>
+    </section>
 
-      <div class="about-grid">
-        <div class="profile-card">
-          <img src="https://images.unsplash.com/photo-1535713875002-d1d0cf377fde?auto=format&fit=crop&w=600&q=80" alt="Profile photo">
-          <h3>Neil Tristan Mendez</h3>
-          <p>Social Media Manager</p>
+    <section>
+      <div class="container">
+        <div class="section-heading">
+          <div class="section-kicker">Brand Problems</div>
+          <h2>Caught in any of these situations?</h2>
+          <p>
+            Many businesses struggle online not because their brand is bad, but because their content lacks direction,
+            consistency, and a clear strategy.
+          </p>
+        </div>
+
+        <div class="problems-grid">
+          <div class="card">
+            <div class="card-number">01</div>
+            <h3>No Engagement</h3>
+            <p>
+              Low interaction can come from inconsistent posting, unclear messaging, weak hooks,
+              or content that does not connect with the right audience.
+            </p>
+          </div>
+
+          <div class="card">
+            <div class="card-number">02</div>
+            <h3>Inconsistency</h3>
+            <p>
+              Irregular posting and mixed visuals make it harder for people to recognize,
+              remember, and trust your brand.
+            </p>
+          </div>
+
+          <div class="card">
+            <div class="card-number">03</div>
+            <h3>No Results</h3>
+            <p>
+              Without a clear content system, brands can post often but still struggle with visibility,
+              conversions, and meaningful audience growth.
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="services">
+      <div class="container">
+        <div class="section-heading center">
+          <div class="section-kicker">My Services</div>
+          <h2>Content support for brands that want to look active and trustworthy.</h2>
+          <p>
+            These services are designed to help your brand show up consistently, communicate clearly,
+            and build a stronger digital presence.
+          </p>
+        </div>
+
+        <div class="services-grid">
+          <div class="card service-card">
+            <div class="service-icon">🎞️</div>
+            <div>
+              <h3>Engaging Reels</h3>
+              <p>
+                Reels that help strengthen brand identity, build trust, and create consistent audience engagement.
+              </p>
+            </div>
+          </div>
+
+          <div class="card service-card">
+            <div class="service-icon">📣</div>
+            <div>
+              <h3>Promotive Videos</h3>
+              <p>
+                Clear, compelling promotional videos that help communicate your offers and capture attention.
+              </p>
+            </div>
+          </div>
+
+          <div class="card service-card">
+            <div class="service-icon">🖼️</div>
+            <div>
+              <h3>Eye-Catching Posters</h3>
+              <p>
+                Scroll-stopping visuals that reinforce your identity and make your message easier to understand.
+              </p>
+            </div>
+          </div>
+
+          <div class="card service-card">
+            <div class="service-icon">📲</div>
+            <div>
+              <h3>Consistent Stories</h3>
+              <p>
+                Story content that keeps your brand visible, active, and connected with your audience.
+              </p>
+            </div>
+          </div>
+
+          <div class="card service-card">
+            <div class="service-icon">🧭</div>
+            <div>
+              <h3>Funnel Creation</h3>
+              <p>
+                Simple funnel pages that guide interested audiences toward a clear next step.
+              </p>
+            </div>
+          </div>
+
+          <div class="card service-card">
+            <div class="service-icon">🗓️</div>
+            <div>
+              <h3>Content Calendar</h3>
+              <p>
+                Organized content planning so your brand posts consistently with cohesive messaging.
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="work">
+      <div class="container">
+        <div class="section-heading">
+          <div class="section-kicker">Sample Work</div>
+          <h2>A clean portfolio section for your campaigns.</h2>
+          <p>
+            Replace these sample images later with your real Canva designs, reel thumbnails, client posters,
+            content calendars, or screenshots.
+          </p>
+        </div>
+
+        <div class="work-grid">
+          <div class="work-card" style="background-image: url('https://images.unsplash.com/photo-1611162616305-c69b3fa7fbe0?auto=format&fit=crop&w=900&q=80');">
+            <div class="work-content">
+              <span class="tag">Reels Strategy</span>
+              <h3>Short-Form Content Direction</h3>
+              <p>Hooks, posting ideas, captions, and creative direction for stronger attention.</p>
+            </div>
+          </div>
+
+          <div class="work-card" style="background-image: url('https://images.unsplash.com/photo-1611162618071-b39a2ec055fb?auto=format&fit=crop&w=900&q=80');">
+            <div class="work-content">
+              <span class="tag">Poster Design</span>
+              <h3>Branded Visual Content</h3>
+              <p>Posters and graphics designed to look clean, professional, and recognizable.</p>
+            </div>
+          </div>
+
+          <div class="work-card" style="background-image: url('https://images.unsplash.com/photo-1557804506-669a67965ba0?auto=format&fit=crop&w=900&q=80');">
+            <div class="work-content">
+              <span class="tag">Content Calendar</span>
+              <h3>Organized Monthly Planning</h3>
+              <p>Content pillars, posting rhythm, and campaign ideas planned ahead of time.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="process">
+      <div class="container">
+        <div class="section-heading center">
+          <div class="section-kicker">How It Works</div>
+          <h2>A simple process from strategy to posting.</h2>
+          <p>
+            The goal is to make your social media easier to manage while keeping your brand consistent and professional.
+          </p>
+        </div>
+
+        <div class="process">
+          <div class="process-step">
+            <strong>Step 01</strong>
+            <h3>Brand Review</h3>
+            <p>I review your current page, visuals, audience, and messaging.</p>
+          </div>
+
+          <div class="process-step">
+            <strong>Step 02</strong>
+            <h3>Content Plan</h3>
+            <p>I create a clear content direction based on your goals and brand identity.</p>
+          </div>
+
+          <div class="process-step">
+            <strong>Step 03</strong>
+            <h3>Create Content</h3>
+            <p>I help prepare reels, posters, stories, captions, and funnel content.</p>
+          </div>
+
+          <div class="process-step">
+            <strong>Step 04</strong>
+            <h3>Improve</h3>
+            <p>We review what works and adjust the next content plan for better results.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="about">
+      <div class="container about">
+        <div class="about-photo">
+          <div class="about-badge">
+            <h3>John Eiron</h3>
+            <p>Social Media Manager</p>
+          </div>
         </div>
 
         <div class="about-text">
+          <div class="section-kicker">About Me</div>
+          <h2>I help brands show up better online.</h2>
+
           <p>
-            Hi, I’m Neil. I help businesses create content that looks professional,
-            feels authentic, and connects with the right audience.
+            I work with business owners who want their social media to look more active, organized,
+            and professional. My focus is on content that builds brand authority, creates meaningful engagement,
+            and makes the page feel trustworthy.
           </p>
 
           <p>
-            My focus is on short-form videos, social media strategy, content planning,
-            brand consistency, and growth-focused posting. Whether you need daily content,
-            better captions, stronger visuals, or a full content system, I can help.
+            Whether your brand needs reels, posters, stories, a content calendar, or a funnel page,
+            I can help create a cleaner system for your digital presence.
           </p>
 
           <div class="stats">
             <div class="stat">
-              <h3>30+</h3>
-              <p>Content Ideas Monthly</p>
+              <h3>6</h3>
+              <p>Main service areas</p>
             </div>
             <div class="stat">
-              <h3>4+</h3>
-              <p>Platforms Managed</p>
+              <h3>4</h3>
+              <p>Creative tools used</p>
             </div>
             <div class="stat">
-              <h3>100%</h3>
-              <p>Brand-Focused Strategy</p>
+              <h3>1</h3>
+              <p>Goal: stronger brand presence</p>
             </div>
           </div>
         </div>
       </div>
-    </div>
-  </section>
+    </section>
 
-  <section id="services">
-    <div class="container">
-      <div class="section-title">
-        <h2>Services</h2>
-        <p>Everything your brand needs to look active, trustworthy, and professional online.</p>
-      </div>
-
-      <div class="services-grid">
-        <div class="card">
-          <div class="card-icon">📱</div>
-          <h3>Social Media Management</h3>
+    <section id="contact">
+      <div class="container">
+        <div class="contact">
+          <div class="section-kicker">Contact</div>
+          <h2>Ready to build a stronger social media presence?</h2>
           <p>
-            I manage your pages, plan posts, schedule content, and keep your brand active
-            across platforms.
+            Let’s create content that makes your brand look consistent, credible, and ready for meaningful engagement.
           </p>
-        </div>
 
-        <div class="card">
-          <div class="card-icon">🎬</div>
-          <h3>Short-Form Content</h3>
-          <p>
-            TikTok, Reels, and Shorts content ideas, editing direction, captions,
-            hooks, and posting strategy.
-          </p>
-        </div>
-
-        <div class="card">
-          <div class="card-icon">🧠</div>
-          <h3>Content Strategy</h3>
-          <p>
-            Monthly content calendars, brand messaging, audience targeting,
-            and growth-focused content planning.
-          </p>
-        </div>
-
-        <div class="card">
-          <div class="card-icon">✍️</div>
-          <h3>Caption Writing</h3>
-          <p>
-            Scroll-stopping captions, calls-to-action, hashtags, and post copy
-            designed to increase engagement.
-          </p>
-        </div>
-
-        <div class="card">
-          <div class="card-icon">🎨</div>
-          <h3>Brand Visuals</h3>
-          <p>
-            Simple branded graphics, post templates, story designs, and profile optimization.
-          </p>
-        </div>
-
-        <div class="card">
-          <div class="card-icon">📊</div>
-          <h3>Analytics Reports</h3>
-          <p>
-            Monthly performance reports showing what worked, what improved,
-            and what to post next.
-          </p>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <section id="work">
-    <div class="container">
-      <div class="section-title">
-        <h2>Sample Work</h2>
-        <p>Replace these with your real posts, designs, videos, or screenshots.</p>
-      </div>
-
-      <div class="portfolio-grid">
-        <div class="card portfolio-card">
-          <img src="https://images.unsplash.com/photo-1611162616305-c69b3fa7fbe0?auto=format&fit=crop&w=900&q=80" alt="Instagram content sample">
-          <div class="portfolio-content">
-            <span class="tag">Instagram</span>
-            <h3>Brand Awareness Campaign</h3>
-            <p>Created a clean content style to make the brand look more premium and consistent.</p>
+          <div class="hero-buttons" style="justify-content: center;">
+            <a href="mailto:eirongalsim30@gmail.com" class="btn btn-primary">Email Me</a>
+            <a href="tel:+639152897463" class="btn btn-secondary">Call / Message</a>
+            <a href="https://eirongalsim.systeme.io/va" target="_blank" class="btn btn-secondary">Original Page</a>
           </div>
-        </div>
 
-        <div class="card portfolio-card">
-          <img src="https://images.unsplash.com/photo-1611605698335-8b1569810432?auto=format&fit=crop&w=900&q=80" alt="TikTok content sample">
-          <div class="portfolio-content">
-            <span class="tag">TikTok</span>
-            <h3>Short-Form Video Strategy</h3>
-            <p>Planned hooks, video ideas, captions, and posting schedule for short-form growth.</p>
-          </div>
-        </div>
-
-        <div class="card portfolio-card">
-          <img src="https://images.unsplash.com/photo-1557804506-669a67965ba0?auto=format&fit=crop&w=900&q=80" alt="Content calendar sample">
-          <div class="portfolio-content">
-            <span class="tag">Strategy</span>
-            <h3>Monthly Content Calendar</h3>
-            <p>Organized content pillars, posting topics, and weekly campaign ideas.</p>
+          <div class="contact-info">
+            <div class="contact-pill">📧 eirongalsim30@gmail.com</div>
+            <div class="contact-pill">📱 +63 915 289 7463</div>
           </div>
         </div>
       </div>
-    </div>
-  </section>
+    </section>
 
-  <section id="pricing">
-    <div class="container">
-      <div class="section-title">
-        <h2>Packages</h2>
-        <p>Simple packages for small businesses, creators, and growing brands.</p>
-      </div>
-
-      <div class="pricing-grid">
-        <div class="card pricing-card">
-          <h3>Starter</h3>
-          <div class="price">$199/mo</div>
-          <p>Best for businesses that need basic consistency.</p>
-          <ul>
-            <li>✔ 8 posts per month</li>
-            <li>✔ Caption writing</li>
-            <li>✔ Hashtag research</li>
-            <li>✔ Basic content calendar</li>
-          </ul>
-          <a href="#contact" class="btn btn-secondary">Choose Starter</a>
-        </div>
-
-        <div class="card pricing-card popular">
-          <h3>Growth</h3>
-          <div class="price">$399/mo</div>
-          <p>Best for brands that want stronger content and growth.</p>
-          <ul>
-            <li>✔ 16 posts per month</li>
-            <li>✔ Short-form content ideas</li>
-            <li>✔ Captions + hashtags</li>
-            <li>✔ Monthly analytics report</li>
-            <li>✔ Profile optimization</li>
-          </ul>
-          <a href="#contact" class="btn btn-primary">Choose Growth</a>
-        </div>
-
-        <div class="card pricing-card">
-          <h3>Premium</h3>
-          <div class="price">$699/mo</div>
-          <p>Best for businesses that want full social media support.</p>
-          <ul>
-            <li>✔ 30 posts per month</li>
-            <li>✔ Full content calendar</li>
-            <li>✔ Reels/TikTok strategy</li>
-            <li>✔ Engagement support</li>
-            <li>✔ Monthly strategy call</li>
-          </ul>
-          <a href="#contact" class="btn btn-secondary">Choose Premium</a>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <section>
-    <div class="container">
-      <div class="testimonial">
-        <p>
-          “Neil helped make our social media look more professional and gave us a clear
-          direction for what to post. The content finally feels organized and on-brand.”
-        </p>
-        <h3>— Sample Client Name</h3>
-      </div>
-    </div>
-  </section>
-
-  <section id="contact">
-    <div class="container">
-      <div class="contact-box">
-        <h2>Ready to grow your social media?</h2>
-        <p>
-          Let’s build a content strategy that makes your brand look active,
-          trustworthy, and professional.
-        </p>
-
-        <a href="mailto:your@email.com" class="btn btn-primary">Email Me</a>
-
-        <div class="social-links">
-          <a href="https://instagram.com/yourusername" target="_blank">Instagram</a>
-          <a href="https://tiktok.com/@yourusername" target="_blank">TikTok</a>
-          <a href="https://facebook.com/yourusername" target="_blank">Facebook</a>
-          <a href="https://linkedin.com/in/yourusername" target="_blank">LinkedIn</a>
-        </div>
-      </div>
-    </div>
-  </section>
+  </main>
 
   <footer>
-    <p>© 2026 Neil Tristan Mendez. All rights reserved.</p>
+    <div class="container">
+      © 2026 John Eiron. Social Media Manager. All rights reserved.
+    </div>
   </footer>
 
 </body>
